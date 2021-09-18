@@ -6,6 +6,8 @@ import os
 import json
 from pathlib import Path
 #
+rename_table_file = "assets/jititai_code.csv"
+rename_table = []
 #
 # make object from row data
 def make_obj(row):
@@ -23,19 +25,41 @@ def make_obj(row):
   }
   return _obj
 #
+#
+#
+def check_in_list(name, rename_table):
+  # print(name)
+  # print(type(name))
+  if not type(name) is str:
+    return False
+  else:
+    _replace_name = name.replace('　', '').replace(' ', '')
+    # print('replaced to:', _replace_name)
+    for _table_name in rename_table.name_in_sheet:
+      if _replace_name in _table_name.replace('　', '').replace(' ', ''):
+        return True
+    return False
+#
 # convert dataframe to object
 def sheet_to_object(input_sheet_df):
   _df = input_sheet_df
   _population_array = []
+  rename_table = pd.read_csv(rename_table_file)
+  # print(rename_table)
   # print(population_array)        
   # print(_df)
   # print(_df.isnull())
   # print(_df.isnull().all())
   # print(_df[2])
   #
+  #
   for index, row in _df.iterrows():
-      _row_null = row.isnull()
-      if not _row_null[2]:
+      # _row_null = row.isnull()
+      # if not _row_null[2]:
+      # _flg_exist = (row[2] in rename_table.name_in_sheet)
+      _flg_exist = check_in_list(row[2], rename_table)
+      # print(_flg_exist)
+      if _flg_exist:
         # print(make_obj(row))
         _population_array.append(make_obj(row))
         # #
@@ -119,9 +143,11 @@ def json_make(path: Path, obj: dict) -> None:
 #
 # main routine
 def main(input_file_name):
+  # rename_table = pd.read_csv(rename_table_file)
   population_array = read_excel_file(input_file_name)
-  # rint(population_array)
+  # print(population_array)
   path = Path(__file__).parent/'tmp.json'
+  print('output to',path)
   json_make(path, population_array)
 # 
 # 

@@ -1,42 +1,6 @@
 [
 [
     {
-        "name": "人　　  口 　　 と　 　 世 　　 帯",
-        "household": NaN,
-        "population": NaN,
-        "pop_male": NaN,
-        "pop_female": NaN,
-        "change_pop": NaN,
-        "change_nature": NaN,
-        "change_social": NaN,
-        "pop_per_house": NaN,
-        "pop_per_area": NaN
-    },
-    {
-        "name": "令和３年８月１日現在",
-        "household": NaN,
-        "population": NaN,
-        "pop_male": NaN,
-        "pop_female": NaN,
-        "change_pop": NaN,
-        "change_nature": NaN,
-        "change_social": NaN,
-        "pop_per_house": NaN,
-        "pop_per_area": "（令和２年国勢調査（県速報値）を基準とした推計）"
-    },
-    {
-        "name": "市 区 町 村",
-        "household": "世 帯 数",
-        "population": "人",
-        "pop_male": NaN,
-        "pop_female": "口",
-        "change_pop": "前１か月の人口増減の内訳",
-        "change_nature": NaN,
-        "change_social": NaN,
-        "pop_per_house": "１世帯当",
-        "pop_per_area": "人口密度"
-    },
-    {
         "name": "県計",
         "household": 4261916,
         "population": 9243028,
