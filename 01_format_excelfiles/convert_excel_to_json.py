@@ -3,6 +3,8 @@
 import pandas as pd
 import sys
 import os
+import json
+from pathlib import Path
 #
 #
 # make object from row data
@@ -93,13 +95,34 @@ def read_excel_file(input_file_name):
   return _population_array
 #
 #
-
-
+# json_make
+def json_make(path: Path, obj: dict) -> None:
+    ls = None
+    #
+    if not os.path.exists(path):
+      f = open(path, 'w')
+      f.write('')  # 何も書き込まなくてファイルは作成されました
+      f.close()    
+    #
+    with open(path, 'r+') as f:
+        ls = f.readlines()
+        if ls == []:
+            ls.append('[\n')
+        if ls[-1] == ']':
+            ls[-1] = ','
+        ls.insert(len(ls), f'{json.dumps(obj, indent=4 ,ensure_ascii=False)}')
+        ls.insert(len(ls), '\n]')
+    #
+    with open(path, 'w') as f:
+        f.writelines(ls)
+#
 #
 # main routine
 def main(input_file_name):
   population_array = read_excel_file(input_file_name)
-  print(population_array)
+  # rint(population_array)
+  path = Path(__file__).parent/'tmp.json'
+  json_make(path, population_array)
 # 
 # 
 # 
@@ -108,7 +131,7 @@ if __name__ == '__main__':
     if 2 <= len(args):
       filename = args[1]
       if os.path.exists(filename):
-        input_book = main(filename)
+        main(filename)
       else:
         print('file {} is not found'.format(filename))
     else:
