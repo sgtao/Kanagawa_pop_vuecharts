@@ -6,7 +6,7 @@ import os
 import json
 from pathlib import Path
 #
-rename_table_file = "assets/jititai_code.csv"
+rename_table_file = Path(__file__).parent/'assets/jititai_code.csv'
 rename_table = []
 #
 # make object from row data
