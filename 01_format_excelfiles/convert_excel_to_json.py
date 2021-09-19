@@ -5,6 +5,7 @@ import sys
 import os
 import json
 from pathlib import Path
+from urllib.parse import urlparse
 #
 rename_table_file = Path(__file__).parent/'assets/jititai_code.csv'
 rename_table = []
@@ -184,15 +185,16 @@ if __name__ == '__main__':
     args = sys.argv
     output_file = 'tmp.json'
     if 2 <= len(args):
-      filename = args[1]
+      filepath = args[1]
       if 3 <= len(args):
         output_file = args[2]
-      if os.path.exists(filename):
-        main(filename, output_file)
-      else:
-        print('file {} is not found'.format(filename))
     else:
       print('Arguments are too short')
+
+    if os.path.exists(filepath) or len(urlparse(filepath).scheme) > 0:
+      main(filepath, output_file)
+    else:
+      print('file {} is not found'.format(filepath))
   #
 
 # EOF

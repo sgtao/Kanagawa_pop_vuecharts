@@ -16,7 +16,7 @@ pip3 install xlrd==1.2.0
 cd 01_format_excelfiles
 rm outputs/*
 python3 convert_excel_to_json.py assets/jinkotosetai_r3_8.xlsx
- outputs/jinkoutosetai_202108.json
+ outputs/jinkotosetai_202108.json
 ```
 
 ## 参考情報：
