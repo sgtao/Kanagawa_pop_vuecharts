@@ -169,11 +169,12 @@ def json_make(path: Path, obj: dict) -> None:
 #
 #
 # main routine
-def main(input_file_name):
+def main(input_file_name, output_file):
   # rename_table = pd.read_csv(rename_table_file)
   population_array = read_excel_file(input_file_name)
   # print(population_array)
-  path = Path(__file__).parent/'tmp.json'
+  # path = Path(__file__).parent/'tmp.json'
+  path = Path(__file__).parent/output_file
   print('output to',path)
   json_make(path, population_array)
 # 
@@ -181,10 +182,13 @@ def main(input_file_name):
 # 
 if __name__ == '__main__':
     args = sys.argv
+    output_file = 'tmp.json'
     if 2 <= len(args):
       filename = args[1]
+      if 3 <= len(args):
+        output_file = args[2]
       if os.path.exists(filename):
-        main(filename)
+        main(filename, output_file)
       else:
         print('file {} is not found'.format(filename))
     else:

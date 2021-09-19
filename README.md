@@ -11,6 +11,13 @@ pip3 install openpyxl
 pip3 install xlrd==1.2.0
 ```
 
+# convert Excel file to JSON file
+```
+cd 01_format_excelfiles
+rm outputs/*
+python3 convert_excel_to_json.py assets/jinkotosetai_r3_8.xlsx
+ outputs/jinkoutosetai_202108.json
+```
 
 ## 参考情報：
   - [神奈川県の人口と世帯](https://www.pref.kanagawa.jp/docs/x6z/tc30/jinko/jimkotosetai.html)
