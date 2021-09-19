@@ -1,4 +1,4 @@
-# charts_Kanagawa_pop
+# kanagawa_poplation_info
 - charts_Kanagawa_popをJSONデータの読込で実現する
   1. 神奈川県の公表データからJSONデータへ変換する
   2. charts.jsを利用して、JSONデータを可視化する
