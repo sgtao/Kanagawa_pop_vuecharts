@@ -10,9 +10,11 @@ rename_table_file = Path(__file__).parent/'assets/jititai_code.csv'
 rename_table = []
 #
 # make object from row data
-def make_obj(row):
+def make_obj(id, city_name, code, row):
   _obj = {
-    'name' : row[2],
+    'id' : id,
+    'city_name': city_name,
+    'code' : code,
     'household' : row[4],
     'population' : row[5],
     'pop_male' : row[6],
@@ -33,18 +35,35 @@ def check_in_list(name, rename_table):
   if not type(name) is str:
     return False
   else:
-    _replace_name = name.replace('　', '').replace(' ', '')
+    # _replace_name = name.replace('　', '').replace(' ', '')
+    _replace_name = name
     # print('replaced to:', _replace_name)
-    for _table_name in rename_table.name_in_sheet:
-      if _replace_name in _table_name.replace('　', '').replace(' ', ''):
+    for _rename_entry in rename_table.name_in_sheet:
+      # print(_rename_entry)
+      # if _replace_name in _rename_entry.replace('　', '').replace(' ', ''):
+      if _replace_name in _rename_entry:
         return True
-    return False
+    else:
+      return False
 #
+def get_child_fr_list(name, rename_table):
+  # print('rename_table :',rename_table)
+  # print('key by :', name)
+  for i in range(len(rename_table)):
+    # print(rename_table.iloc[i])
+    # print(rename_table.iloc[i].name_in_sheet)
+    _check_word = rename_table.iloc[i].name_in_sheet
+    # print('check word:', type(_check_word))
+    # print('check word:', _check_word)
+    if (name in _check_word):
+      return {'code': rename_table.iloc[i].code, 'city_name': rename_table.iloc[i].city_name}
+  return None
+
 # convert dataframe to object
 def sheet_to_object(input_sheet_df):
   _df = input_sheet_df
   _population_array = []
-  rename_table = pd.read_csv(rename_table_file)
+  df_rename_table = pd.read_csv(rename_table_file)
   # print(rename_table)
   # print(population_array)        
   # print(_df)
@@ -53,20 +72,28 @@ def sheet_to_object(input_sheet_df):
   # print(_df[2])
   #
   #
+  _id = 0;
   for index, row in _df.iterrows():
       # _row_null = row.isnull()
       # if not _row_null[2]:
       # _flg_exist = (row[2] in rename_table.name_in_sheet)
-      _flg_exist = check_in_list(row[2], rename_table)
+      _flg_exist = check_in_list(row[2], df_rename_table)
       # print(_flg_exist)
       if _flg_exist:
         # print(make_obj(row))
-        _population_array.append(make_obj(row))
+        _childs = get_child_fr_list(row[2], df_rename_table)
+        # print(_childs)
+        _code = _childs['code']
+        _city_name = _childs['city_name']
+        # print(row[2], name)
+        _population_array.append(make_obj(_id, _city_name, _code, row))
+        _id += 1
         # #
         # print(type(row))
         # print(row)
         # print('------')
   #
+  # print(_population_array)
   return _population_array
   # print(population_array)        
   #

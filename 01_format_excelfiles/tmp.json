@@ -1,7 +1,9 @@
 [
 [
     {
-        "name": "県計",
+        "id": 0,
+        "city_name": "神奈川県",
+        "code": "140007",
         "household": 4261916,
         "population": 9243028,
         "pop_male": 4585493,
@@ -13,7 +15,9 @@
         "pop_per_area": 3826
     },
     {
-        "name": "市部計",
+        "id": 1,
+        "city_name": "市部計",
+        "code": "--",
         "household": 4140332,
         "population": 8955158,
         "pop_male": 4444040,
@@ -25,7 +29,9 @@
         "pop_per_area": 4948
     },
     {
-        "name": "郡部計",
+        "id": 2,
+        "city_name": "郡部計",
+        "code": "--",
         "household": 121584,
         "population": 287870,
         "pop_male": 141453,
@@ -37,7 +43,9 @@
         "pop_per_area": 475
     },
     {
-        "name": "横浜市",
+        "id": 3,
+        "city_name": "横浜市",
+        "code": "141003",
         "household": 1768776,
         "population": 3778876,
         "pop_male": 1865099,
@@ -49,7 +57,9 @@
         "pop_per_area": 8633
     },
     {
-        "name": "  鶴見区",
+        "id": 4,
+        "city_name": "鶴見区",
+        "code": "141011",
         "household": 146114,
         "population": 296704,
         "pop_male": 152823,
@@ -61,7 +71,9 @@
         "pop_per_area": 8929
     },
     {
-        "name": "   神奈川区",
+        "id": 5,
+        "city_name": "神奈川区",
+        "code": "141020",
         "household": 130907,
         "population": 247853,
         "pop_male": 126172,
@@ -73,7 +85,9 @@
         "pop_per_area": 10449
     },
     {
-        "name": " 西  区",
+        "id": 6,
+        "city_name": "西区",
+        "code": "141038",
         "household": 57190,
         "population": 104798,
         "pop_male": 52998,
@@ -85,7 +99,9 @@
         "pop_per_area": 14907
     },
     {
-        "name": "  中   区",
+        "id": 7,
+        "city_name": "中区",
+        "code": "141046",
         "household": 85603,
         "population": 150893,
         "pop_male": 76794,
@@ -97,7 +113,9 @@
         "pop_per_area": 7038
     },
     {
-        "name": " 南  区",
+        "id": 8,
+        "city_name": "南区",
+        "code": "141054",
         "household": 104683,
         "population": 197855,
         "pop_male": 98632,
@@ -109,7 +127,9 @@
         "pop_per_area": 15641
     },
     {
-        "name": "  港南区",
+        "id": 9,
+        "city_name": "港南区",
+        "code": "141119",
         "household": 96374,
         "population": 215219,
         "pop_male": 104942,
@@ -121,7 +141,9 @@
         "pop_per_area": 10815
     },
     {
-        "name": "　保土ケ谷区",
+        "id": 10,
+        "city_name": "保土ケ谷区",
+        "code": "141062",
         "household": 99894,
         "population": 207426,
         "pop_male": 101556,
@@ -133,7 +155,9 @@
         "pop_per_area": 9459
     },
     {
-        "name": " 旭  区",
+        "id": 11,
+        "city_name": "旭区",
+        "code": "141127",
         "household": 107474,
         "population": 243983,
         "pop_male": 117582,
@@ -145,7 +169,9 @@
         "pop_per_area": 7454
     },
     {
-        "name": "  磯子区",
+        "id": 12,
+        "city_name": "磯子区",
+        "code": "141071",
         "household": 79310,
         "population": 166500,
         "pop_male": 81813,
@@ -157,7 +183,9 @@
         "pop_per_area": 8740
     },
     {
-        "name": "  金沢区",
+        "id": 13,
+        "city_name": "金沢区",
+        "code": "141089",
         "household": 90453,
         "population": 198240,
         "pop_male": 96344,
@@ -169,7 +197,9 @@
         "pop_per_area": 6403
     },
     {
-        "name": "  港北区",
+        "id": 14,
+        "city_name": "港北区",
+        "code": "141097",
         "household": 177140,
         "population": 360290,
         "pop_male": 179715,
@@ -181,7 +211,9 @@
         "pop_per_area": 11474
     },
     {
-        "name": " 緑  区",
+        "id": 15,
+        "city_name": "緑区",
+        "code": "141135",
         "household": 80192,
         "population": 183531,
         "pop_male": 90201,
@@ -193,7 +225,9 @@
         "pop_per_area": 7194
     },
     {
-        "name": "  青葉区",
+        "id": 16,
+        "city_name": "青葉区",
+        "code": "141178",
         "household": 134726,
         "population": 311156,
         "pop_male": 150095,
@@ -205,7 +239,9 @@
         "pop_per_area": 8835
     },
     {
-        "name": "  都筑区",
+        "id": 17,
+        "city_name": "都筑区",
+        "code": "141186",
         "household": 85827,
         "population": 214743,
         "pop_male": 105213,
@@ -217,7 +253,9 @@
         "pop_per_area": 7705
     },
     {
-        "name": "  戸塚区",
+        "id": 18,
+        "city_name": "戸塚区",
+        "code": "141101",
         "household": 123359,
         "population": 284515,
         "pop_male": 138567,
@@ -229,7 +267,9 @@
         "pop_per_area": 7950
     },
     {
-        "name": " 栄  区",
+        "id": 19,
+        "city_name": "栄区",
+        "code": "141151",
         "household": 53448,
         "population": 120729,
         "pop_male": 58858,
@@ -241,7 +281,9 @@
         "pop_per_area": 6519
     },
     {
-        "name": " 泉  区",
+        "id": 20,
+        "city_name": "泉区",
+        "code": "141160",
         "household": 63330,
         "population": 152269,
         "pop_male": 73730,
@@ -253,7 +295,9 @@
         "pop_per_area": 6458
     },
     {
-        "name": "  瀬谷区",
+        "id": 21,
+        "city_name": "瀬谷区",
+        "code": "141143",
         "household": 52752,
         "population": 122172,
         "pop_male": 59064,
@@ -265,7 +309,9 @@
         "pop_per_area": 7115
     },
     {
-        "name": "川崎市",
+        "id": 22,
+        "city_name": "川崎市",
+        "code": "141305",
         "household": 754946,
         "population": 1541560,
         "pop_male": 776598,
@@ -277,7 +323,9 @@
         "pop_per_area": 10779
     },
     {
-        "name": "  川崎区",
+        "id": 23,
+        "city_name": "川崎区",
+        "code": "141313",
         "household": 123929,
         "population": 231946,
         "pop_male": 124631,
@@ -289,7 +337,9 @@
         "pop_per_area": 5868
     },
     {
-        "name": " 幸  区",
+        "id": 24,
+        "city_name": "幸区",
+        "code": "141321",
         "household": 80294,
         "population": 170881,
         "pop_male": 86414,
@@ -301,7 +351,9 @@
         "pop_per_area": 17071
     },
     {
-        "name": "  中原区",
+        "id": 25,
+        "city_name": "中原区",
+        "code": "141330",
         "household": 136346,
         "population": 264883,
         "pop_male": 134169,
@@ -313,7 +365,9 @@
         "pop_per_area": 17970
     },
     {
-        "name": "  高津区",
+        "id": 26,
+        "city_name": "高津区",
+        "code": "141348",
         "household": 114959,
         "population": 234868,
         "pop_male": 116538,
@@ -325,7 +379,9 @@
         "pop_per_area": 14356
     },
     {
-        "name": "  宮前区",
+        "id": 27,
+        "city_name": "宮前区",
+        "code": "141364",
         "household": 103573,
         "population": 234369,
         "pop_male": 113650,
@@ -337,7 +393,9 @@
         "pop_per_area": 12594
     },
     {
-        "name": "  多摩区",
+        "id": 28,
+        "city_name": "多摩区",
+        "code": "141356",
         "household": 115463,
         "population": 223279,
         "pop_male": 113657,
@@ -349,7 +407,9 @@
         "pop_per_area": 10892
     },
     {
-        "name": "  麻生区",
+        "id": 29,
+        "city_name": "麻生区",
+        "code": "141372",
         "household": 80382,
         "population": 181334,
         "pop_male": 87539,
@@ -361,7 +421,9 @@
         "pop_per_area": 7799
     },
     {
-        "name": "相模原市",
+        "id": 30,
+        "city_name": "相模原市",
+        "code": "141500",
         "household": 336058,
         "population": 725642,
         "pop_male": 361574,
@@ -373,7 +435,9 @@
         "pop_per_area": 2206
     },
     {
-        "name": " 緑　区",
+        "id": 31,
+        "city_name": "緑区",
+        "code": "141135",
         "household": 75579,
         "population": 169608,
         "pop_male": 85155,
@@ -385,7 +449,9 @@
         "pop_per_area": 668
     },
     {
-        "name": "  中央区",
+        "id": 32,
+        "city_name": "中央区",
+        "code": "141526",
         "household": 126116,
         "population": 273768,
         "pop_male": 136812,
@@ -397,7 +463,9 @@
         "pop_per_area": 7425
     },
     {
-        "name": " 南　区",
+        "id": 33,
+        "city_name": "南区",
+        "code": "141054",
         "household": 134363,
         "population": 282266,
         "pop_male": 139607,
@@ -409,7 +477,9 @@
         "pop_per_area": 7407
     },
     {
-        "name": "横須賀市",
+        "id": 34,
+        "city_name": "横須賀市",
+        "code": "142018",
         "household": 165375,
         "population": 385892,
         "pop_male": 192537,
@@ -421,7 +491,9 @@
         "pop_per_area": 3828
     },
     {
-        "name": "平塚市",
+        "id": 35,
+        "city_name": "平塚市",
+        "code": "142034",
         "household": 112938,
         "population": 258112,
         "pop_male": 128783,
@@ -433,7 +505,9 @@
         "pop_per_area": 3806
     },
     {
-        "name": "鎌倉市",
+        "id": 36,
+        "city_name": "鎌倉市",
+        "code": "142042",
         "household": 76319,
         "population": 172782,
         "pop_male": 80987,
@@ -445,7 +519,9 @@
         "pop_per_area": 4355
     },
     {
-        "name": "藤沢市",
+        "id": 37,
+        "city_name": "藤沢市",
+        "code": "142051",
         "household": 196513,
         "population": 440409,
         "pop_male": 217354,
@@ -457,7 +533,9 @@
         "pop_per_area": 6331
     },
     {
-        "name": "小田原市",
+        "id": 38,
+        "city_name": "小田原市",
+        "code": "142069",
         "household": 82565,
         "population": 188403,
         "pop_male": 90961,
@@ -469,7 +547,9 @@
         "pop_per_area": 1658
     },
     {
-        "name": "茅ヶ崎市",
+        "id": 39,
+        "city_name": "茅ヶ崎市",
+        "code": "142077",
         "household": 103750,
         "population": 243239,
         "pop_male": 117868,
@@ -481,7 +561,9 @@
         "pop_per_area": 6813
     },
     {
-        "name": "逗子市",
+        "id": 40,
+        "city_name": "逗子市",
+        "code": "142085",
         "household": 25108,
         "population": 56924,
         "pop_male": 26719,
@@ -493,7 +575,9 @@
         "pop_per_area": 3294
     },
     {
-        "name": "三浦市",
+        "id": 41,
+        "city_name": "三浦市",
+        "code": "142107",
         "household": 17179,
         "population": 41574,
         "pop_male": 19890,
@@ -505,7 +589,9 @@
         "pop_per_area": 1297
     },
     {
-        "name": "秦野市",
+        "id": 42,
+        "city_name": "秦野市",
+        "code": "142115",
         "household": 70788,
         "population": 162114,
         "pop_male": 82077,
@@ -517,7 +603,9 @@
         "pop_per_area": 1562
     },
     {
-        "name": "厚木市",
+        "id": 43,
+        "city_name": "厚木市",
+        "code": "142123",
         "household": 101410,
         "population": 223966,
         "pop_male": 115398,
@@ -529,7 +617,9 @@
         "pop_per_area": 2387
     },
     {
-        "name": "大和市",
+        "id": 44,
+        "city_name": "大和市",
+        "code": "142131",
         "household": 112156,
         "population": 240912,
         "pop_male": 120145,
@@ -541,7 +631,9 @@
         "pop_per_area": 8893
     },
     {
-        "name": "伊勢原市",
+        "id": 45,
+        "city_name": "伊勢原市",
+        "code": "142140",
         "household": 45516,
         "population": 101347,
         "pop_male": 51261,
@@ -553,7 +645,9 @@
         "pop_per_area": 1824
     },
     {
-        "name": "海老名市",
+        "id": 46,
+        "city_name": "海老名市",
+        "code": "142158",
         "household": 59113,
         "population": 137320,
         "pop_male": 68966,
@@ -565,7 +659,9 @@
         "pop_per_area": 5164
     },
     {
-        "name": "座間市",
+        "id": 47,
+        "city_name": "座間市",
+        "code": "142166",
         "household": 60621,
         "population": 132221,
         "pop_male": 65741,
@@ -577,7 +673,9 @@
         "pop_per_area": 7525
     },
     {
-        "name": "南足柄市",
+        "id": 48,
+        "city_name": "南足柄市",
+        "code": "142174",
         "household": 16358,
         "population": 40501,
         "pop_male": 19833,
@@ -589,7 +687,9 @@
         "pop_per_area": 525
     },
     {
-        "name": "綾瀬市",
+        "id": 49,
+        "city_name": "綾瀬市",
+        "code": "142182",
         "household": 34843,
         "population": 83364,
         "pop_male": 42249,
@@ -601,7 +701,9 @@
         "pop_per_area": 3765
     },
     {
-        "name": "三浦郡葉山町",
+        "id": 50,
+        "city_name": "葉山町",
+        "code": "143014",
         "household": 13096,
         "population": 31648,
         "pop_male": 14856,
@@ -613,7 +715,9 @@
         "pop_per_area": 1857
     },
     {
-        "name": "高座郡寒川町",
+        "id": 51,
+        "city_name": "寒川町",
+        "code": "143219",
         "household": 20107,
         "population": 48551,
         "pop_male": 24560,
@@ -625,7 +729,9 @@
         "pop_per_area": 3640
     },
     {
-        "name": "中郡",
+        "id": 52,
+        "city_name": "中郡",
+        "code": "--",
         "household": 24396,
         "population": 59011,
         "pop_male": 28569,
@@ -637,7 +743,9 @@
         "pop_per_area": 2248
     },
     {
-        "name": "  大磯町",
+        "id": 53,
+        "city_name": "大磯町",
+        "code": "143413",
         "household": 12793,
         "population": 31598,
         "pop_male": 15377,
@@ -649,7 +757,9 @@
         "pop_per_area": 1839
     },
     {
-        "name": "  二宮町",
+        "id": 54,
+        "city_name": "二宮町",
+        "code": "143421",
         "household": 11603,
         "population": 27413,
         "pop_male": 13192,
@@ -661,7 +771,9 @@
         "pop_per_area": 3019
     },
     {
-        "name": "足柄上郡",
+        "id": 55,
+        "city_name": "足柄上郡",
+        "code": "--",
         "household": 25705,
         "population": 65065,
         "pop_male": 32002,
@@ -673,7 +785,9 @@
         "pop_per_area": 215
     },
     {
-        "name": "  中井町",
+        "id": 56,
+        "city_name": "中井町",
+        "code": "143618",
         "household": 3401,
         "population": 9142,
         "pop_male": 4565,
@@ -685,7 +799,9 @@
         "pop_per_area": 457
     },
     {
-        "name": "  大井町",
+        "id": 57,
+        "city_name": "大井町",
+        "code": "143626",
         "household": 6810,
         "population": 17169,
         "pop_male": 8421,
@@ -697,7 +813,9 @@
         "pop_per_area": 1194
     },
     {
-        "name": "  松田町",
+        "id": 58,
+        "city_name": "松田町",
+        "code": "143634",
         "household": 4536,
         "population": 10647,
         "pop_male": 5284,
@@ -709,7 +827,9 @@
         "pop_per_area": 282
     },
     {
-        "name": "  山北町",
+        "id": 59,
+        "city_name": "山北町",
+        "code": "143642",
         "household": 3921,
         "population": 9634,
         "pop_male": 4760,
@@ -721,7 +841,9 @@
         "pop_per_area": 43
     },
     {
-        "name": "  開成町",
+        "id": 60,
+        "city_name": "開成町",
+        "code": "143669",
         "household": 7037,
         "population": 18473,
         "pop_male": 8972,
@@ -733,7 +855,9 @@
         "pop_per_area": 2820
     },
     {
-        "name": "足柄下郡",
+        "id": 61,
+        "city_name": "足柄下郡",
+        "code": "--",
         "household": 20100,
         "population": 41039,
         "pop_male": 19196,
@@ -745,7 +869,9 @@
         "pop_per_area": 291
     },
     {
-        "name": "  箱根町",
+        "id": 62,
+        "city_name": "箱根町",
+        "code": "143821",
         "household": 6429,
         "population": 11265,
         "pop_male": 5391,
@@ -757,7 +883,9 @@
         "pop_per_area": 121
     },
     {
-        "name": "  真鶴町",
+        "id": 63,
+        "city_name": "真鶴町",
+        "code": "143839",
         "household": 2945,
         "population": 6618,
         "pop_male": 3067,
@@ -769,7 +897,9 @@
         "pop_per_area": 939
     },
     {
-        "name": "   湯河原町",
+        "id": 64,
+        "city_name": "湯河原町",
+        "code": "143847",
         "household": 10726,
         "population": 23156,
         "pop_male": 10738,
@@ -781,7 +911,9 @@
         "pop_per_area": 565
     },
     {
-        "name": "愛甲郡",
+        "id": 65,
+        "city_name": "愛甲郡",
+        "code": "--",
         "household": 18180,
         "population": 42556,
         "pop_male": 22270,
@@ -793,7 +925,9 @@
         "pop_per_area": 403
     },
     {
-        "name": "  愛川町",
+        "id": 66,
+        "city_name": "愛川町",
+        "code": "144011",
         "household": 17061,
         "population": 39542,
         "pop_male": 20735,
@@ -805,7 +939,9 @@
         "pop_per_area": 1154
     },
     {
-        "name": "  清川村",
+        "id": 67,
+        "city_name": "清川村",
+        "code": "144029",
         "household": 1119,
         "population": 3014,
         "pop_male": 1535,
