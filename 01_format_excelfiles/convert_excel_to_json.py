@@ -31,31 +31,21 @@ def make_obj(id, city_name, code, row):
 #
 #
 def check_in_list(name, rename_table):
-  # print(name)
-  # print(type(name))
   if not type(name) is str:
     return False
   else:
-    # _replace_name = name.replace('　', '').replace(' ', '')
     _replace_name = name
-    # print('replaced to:', _replace_name)
     for _rename_entry in rename_table.name_in_sheet:
       # print(_rename_entry)
-      # if _replace_name in _rename_entry.replace('　', '').replace(' ', ''):
       if _replace_name in _rename_entry:
         return True
     else:
       return False
 #
 def get_child_fr_list(name, rename_table):
-  # print('rename_table :',rename_table)
-  # print('key by :', name)
   for i in range(len(rename_table)):
-    # print(rename_table.iloc[i])
     # print(rename_table.iloc[i].name_in_sheet)
     _check_word = rename_table.iloc[i].name_in_sheet
-    # print('check word:', type(_check_word))
-    # print('check word:', _check_word)
     if (name in _check_word):
       return {'code': rename_table.iloc[i].code, 'city_name': rename_table.iloc[i].city_name}
   return None
@@ -65,60 +55,27 @@ def sheet_to_object(input_sheet_df):
   _df = input_sheet_df
   _population_array = []
   df_rename_table = pd.read_csv(rename_table_file)
-  # print(rename_table)
-  # print(population_array)        
-  # print(_df)
-  # print(_df.isnull())
-  # print(_df.isnull().all())
-  # print(_df[2])
-  #
   #
   _id = 0;
   for index, row in _df.iterrows():
-      # _row_null = row.isnull()
-      # if not _row_null[2]:
-      # _flg_exist = (row[2] in rename_table.name_in_sheet)
       _flg_exist = check_in_list(row[2], df_rename_table)
       # print(_flg_exist)
       if _flg_exist:
-        # print(make_obj(row))
         _childs = get_child_fr_list(row[2], df_rename_table)
         # print(_childs)
         _code = _childs['code']
         _city_name = _childs['city_name']
-        # print(row[2], name)
         _population_array.append(make_obj(_id, _city_name, _code, row))
         _id += 1
-        # #
-        # print(type(row))
-        # print(row)
-        # print('------')
   #
   # print(_population_array)
   return _population_array
-  # print(population_array)        
-  #
-  # for index, row in _df.iterrows():
-  #     print(type(index))
-  #     print(index)
-  #     print('~~~~~~')
-  #     #
-  #     print(type(row))
-  #     print(row)
-  #     print('------')
-  #     #
-  #     print(row[2])
-  #     print('======\n')
-  # #
 #
 #
 # print Data Sheet
 def print_data_sheet(input_sheet_df):
   #DataFrameとしてsheet1枚のデータ(2019)を読込み
   #読み込んだシートの先頭10行を表示
-  # print(vars(input_sheet_df))
-  # input_sheet_df.head(10)
-  # print(input_sheet_df)
   # 行ごとに処理
   for i, row in input_sheet_df.iterrows():
       print(i, row)
@@ -129,10 +86,6 @@ def print_data_sheet(input_sheet_df):
 #
 # read excel file
 def read_excel_file(input_file_name):
-  # input_file_name = 'jinkotosetai_r3_8.xlsx'
-  # df = pd.read_excel(input_file_name, index_col=0)
-  # df = pd.read_excel(input_file_name)
-
   #xls book Open (xls, xlsxのどちらでも可能)
   input_book = pd.ExcelFile(input_file_name)
   #sheet_namesメソッドでExcelブック内の各シートの名前をリストで取得できる
@@ -171,10 +124,8 @@ def json_make(path: Path, obj: dict) -> None:
 #
 # main routine
 def main(input_file_name, output_file):
-  # rename_table = pd.read_csv(rename_table_file)
   population_array = read_excel_file(input_file_name)
   # print(population_array)
-  # path = Path(__file__).parent/'tmp.json'
   path = Path(__file__).parent/output_file
   print('output to',path)
   json_make(path, population_array)
@@ -196,5 +147,5 @@ if __name__ == '__main__':
     else:
       print('file {} is not found'.format(filepath))
   #
-
+# 
 # EOF
