@@ -11,11 +11,13 @@ rename_table_file = Path(__file__).parent/'assets/jititai_code.csv'
 rename_table = []
 #
 # make object from row data
-def make_obj(id, city_name, code, row):
+def make_obj(id, city_name, code, area_name, city_type, row):
   _obj = {
     'id' : id,
     'city_name': city_name,
     'code' : code,
+    'area_name': area_name,
+    'city_type': city_type,
     'household' : row[4],
     'population' : row[5],
     'pop_male' : row[6],
@@ -47,7 +49,12 @@ def get_child_fr_list(name, rename_table):
     # print(rename_table.iloc[i].name_in_sheet)
     _check_word = rename_table.iloc[i].name_in_sheet
     if (name in _check_word):
-      return {'code': rename_table.iloc[i].code, 'city_name': rename_table.iloc[i].city_name}
+      return {
+        'code': rename_table.iloc[i].code, 
+        'city_name': rename_table.iloc[i].city_name,
+        'area_name': rename_table.iloc[i].area_name,
+        'city_type': rename_table.iloc[i].city_type,
+        }
   return None
 
 # convert dataframe to object
@@ -65,7 +72,9 @@ def sheet_to_object(input_sheet_df):
         # print(_childs)
         _code = _childs['code']
         _city_name = _childs['city_name']
-        _population_array.append(make_obj(_id, _city_name, _code, row))
+        _area_name = _childs['area_name']
+        _city_type = _childs['city_type']
+        _population_array.append(make_obj(_id, _city_name, _code, _area_name, _city_type, row))
         _id += 1
   #
   # print(_population_array)
