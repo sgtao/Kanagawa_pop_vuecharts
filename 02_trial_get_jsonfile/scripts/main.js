@@ -4,16 +4,25 @@ var get_url = 'https://sgtao.github.io/kanagawa_population_info/01_format_excelf
 
 var App = Object.freeze({
   name: 'My App',
-  version: '0.0.1',
+  version: '0.0.2',
   helpers: {
-    filterCityCode: function (info_array) {
+    filterPrefInfo: function (info_array) {
       let filtered_array = [];
       for (let info of info_array) {
-        if (info.code > 0) {
-          filtered_array.push(info)
+        if (info.area_name == "県全域") {
+          filtered_array.push(info);
         }
       }
-      return filtered_array
+      return filtered_array;
+    },
+    filterCityInfo: function (info_array) {
+      let filtered_array = [];
+      for (let info of info_array) {
+        if ((info.code > 0) && (info.area_name != "県全域") && (info.city_type != "区")) {
+          filtered_array.push(info);
+        }
+      }
+      return filtered_array;
     }
   }
 });
@@ -23,7 +32,8 @@ const vm = new Vue({
   data: {
     get_error: false,
     err_message: "取得に失敗しました。",
-    pop_info : [],
+    get_info : [],
+    pref_info: [],
     city_info: [],
   },
   mounted: function () {
@@ -32,9 +42,11 @@ const vm = new Vue({
       .get(get_url)
       .then(function (response) {
         // console.log(response.data);
-        self.pop_info = response.data[0];
-        // console.log(self.pop_info);
-        self.city_info = App.helpers.filterCityCode(self.pop_info);
+        self.get_info = response.data[0];
+        // console.log(self.get_info);
+        self.pref_info = App.helpers.filterPrefInfo(self.get_info);
+        console.log(self.pref_info);
+        self.city_info = App.helpers.filterCityInfo(self.get_info);
         console.log(self.city_info);
       })
       .catch(function (error) {

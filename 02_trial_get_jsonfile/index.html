@@ -17,12 +17,15 @@
       <div v-if="get_error">
         {{ err_message }}
       </div>
-      <ol>
-          <li v-for="city_info in city_info">
-            <span>{{ city_info.city_name }}</span>：
-            <span>{{ city_info.population.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,') }}（人）</span>、
-          </li>
-      </ol>
+      <div>
+        <p>各市町村の情報：</p>
+        <ol>
+            <li v-for="city in city_info">
+              <span>{{ city.city_name }}</span>：
+              <span>{{ city.population.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,') }}（人）</span>、
+            </li>
+        </ol>
+      </div>
   </div>
   <!-- scripts -->
   <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
