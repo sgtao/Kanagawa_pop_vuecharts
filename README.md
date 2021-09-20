@@ -3,7 +3,10 @@
   1. 神奈川県の公表データからJSONデータへ変換する
   2. charts.jsを利用して、JSONデータを可視化する
 
-# prepare
+## Demo
+- [show information as simple list](https://sgtao.github.io/kanagawa_population_info/02_trial_get_jsonfile/)
+
+## prepare
 - prepare to work under `01_format_excelfiles/`
 ```
 pip3 install pandas
@@ -11,7 +14,7 @@ pip3 install openpyxl
 pip3 install xlrd==1.2.0
 ```
 
-# convert Excel file to JSON file
+##  convert Excel file to JSON file
 ```
 cd 01_format_excelfiles
 rm outputs/jinkotosetai_202108.json
