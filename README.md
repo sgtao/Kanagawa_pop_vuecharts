@@ -14,8 +14,9 @@ pip3 install xlrd==1.2.0
 # convert Excel file to JSON file
 ```
 cd 01_format_excelfiles
-rm outputs/*
-python3 convert_excel_to_json.py assets/jinkotosetai_r3_8.xlsx
+rm outputs/jinkotosetai_202108.json
+wget https://www.pref.kanagawa.jp/documents/14449/jinkotosetai_r3_8.xlsx
+python3 convert_excel_to_json.py ./jinkotosetai_r3_8.xlsx
  outputs/jinkotosetai_202108.json
 ```
 
