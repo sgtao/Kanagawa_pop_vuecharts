@@ -1,6 +1,6 @@
 'use strict';
 
-var get_url = 'https://sgtao.github.io/kanagawa_population_info/01_format_excelfiles/outputs/jinkotosetai_202108.json';
+var base_url = 'https://sgtao.github.io/kanagawa_population_info/01_format_excelfiles/outputs/';
 
 var App = Object.freeze({
   name: 'My App',
@@ -32,12 +32,14 @@ const vm = new Vue({
   data: {
     get_error: false,
     err_message: "取得に失敗しました。",
+    get_month: "202108",
     get_info : [],
     pref_info: [],
     city_info: [],
   },
   mounted: function () {
     var self = this;
+    let get_url = base_url + 'jinkotosetai_' + self.get_month + '.json';
     axios
       .get(get_url)
       .then(function (response) {

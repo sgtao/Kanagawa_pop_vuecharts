@@ -4,7 +4,7 @@
   2. charts.jsを利用して、JSONデータを可視化する
 
 ## Demo
-- [show information as simple list](https://sgtao.github.io/kanagawa_population_info/02_trial_get_jsonfile/)
+- [(trial)show information as simple list](02_trial_get_jsonfile/index.html)
 
 ## prepare
 - prepare to work under `01_format_excelfiles/`
