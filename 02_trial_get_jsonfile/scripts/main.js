@@ -1,11 +1,14 @@
 'use strict';
 
-var get_url = 'https://sgtao.github.io/kanagawa_population_info/01_format_excelfiles/outputs/jinkotosetai_202108.json';
+// var get_url = 'https://sgtao.github.io/kanagawa_population_info/01_format_excelfiles/outputs/jinkotosetai_202108.json';
+var get_url = 'https://sgtao.github.io/kanagawa_population_info/01_format_excelfiles/outputs/jinkotosetai_202108.jso'; // wrong URL
 
 // Rootコンポーネント
 const vm = new Vue({
   el: '#app',
   data: {
+    get_error: false,
+    err_message: "取得に失敗しました。",
     pop_info: []
   },
   mounted: function () {
@@ -19,7 +22,8 @@ const vm = new Vue({
         // self.vtuber = response.data.vtuber;
       })
       .catch(function (error) {
-        console.log('取得に失敗しました。', error);
+        console.log(self.err_message, error);
+        self.get_error = true;
       })
   }
 })
