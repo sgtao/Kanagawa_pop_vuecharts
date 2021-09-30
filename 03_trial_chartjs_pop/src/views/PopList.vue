@@ -1,32 +1,61 @@
 // template
 <template>
   <div class="PopList">
-    <h1>市町村別人口一覧</h1>
-    <div v-if="get_error">
-      {{ err_message }}
-    </div>
-    <div v-else>
-     <div>
-        <p>各市町村の情報（集計年月：{{ get_month }}）：</p>
-        <ol>
-          <li v-for="(city,key) in city_info" :key="key">
-            <span>{{ city.city_name }}</span>：
-            <span>{{ city.area_name }}地域</span>：
-            <span>{{ city.population.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,') }}（人）</span>
-            <span>（先月からの増減＝{{ city.change_pop.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,') }}（人））</span>
-          </li>
-        </ol>
-      </div>
-    </div>
+    <v-container text-xs-center justify-center>
+      <v-layout row wrap>
+        <v-flex xs12>
+          <h1>市町村別人口一覧</h1>
+          <div v-if="get_error">
+            {{ err_message }}
+          </div>
+          <div v-else>
+            <v-flex xs12 mt-5 justify-center>
+              <p>各市町村の情報（集計年月：{{ get_month }}）：</p>
+              <v-data-table :headers='headers' :items='city_info' color="primary" app lighten class="city_info">
+              </v-data-table>
+            </v-flex>
+          </div>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </div>
 </template>
 // 
 // style
 <style lang="scss">
+  $color-pack: false;
   .PopList {
     display: block;
     margin: 0 auto;
   }
+  .city_info {
+    width: 90%;
+    margin: 0 auto;
+    background-color: white;
+    table {
+      thead tr {
+        background-color: #8C9EFF;
+        th {
+          border: 1px solid white;
+          text-align: left;
+          vertical-align: top;
+        }
+      }
+      tbody {
+        tr {
+          border-radius: 25px;
+          border: 0;
+          &:nth-child(2n){
+            background-color: #C8E6C9;
+          }
+          &:hover {
+            background-color: #536DFE;
+          }
+        }
+      }
+    }
+  }
+
 </style>
 //
 <script>
@@ -68,6 +97,16 @@ export default {
       get_info: [],
       pref_info: [],
       city_info: [],
+      headers: [
+        { text: 'コード', value: 'code', class: 'px-0' },
+        { text: '名称', value: 'city_name', class: 'px-0' },
+        { text: '地域', value: 'area_name', class: 'px-0' },
+        { text: '世帯数', value: 'household', class: 'px-0' },
+        { text: '人口', value: 'population', class: 'px-0' },
+        { text: '人口増減(先月比)', value: 'change_pop', class: 'px-0' },
+        { text: '１世帯人数', value: 'pop_per_house', class: 'px-0' },
+        { text: '人口密度', value: 'pop_per_area', class: 'px-0' },
+      ],
     }
   },
   created () {
