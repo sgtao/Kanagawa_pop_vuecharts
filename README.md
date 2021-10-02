@@ -4,11 +4,13 @@
   2. charts.jsを利用して、JSONデータを可視化する
 
 ## Demo
-- [(trial)show information as simple list](02_trial_get_jsonfile/index.html)
+- [(trial)show information as simple list](docs/index.html){:target="_blank"}
 
 ## prepare
 - prepare to work under `01_format_excelfiles/`
 ```
+cd 01_format_excelfiles
+# (if necessary, setup virtualenv)
 pip3 install pandas
 pip3 install openpyxl
 pip3 install xlrd==1.2.0
@@ -21,6 +23,14 @@ rm outputs/jinkotosetai_202108.json
 wget https://www.pref.kanagawa.jp/documents/14449/jinkotosetai_r3_8.xlsx
 python3 convert_excel_to_json.py ./jinkotosetai_r3_8.xlsx
  outputs/jinkotosetai_202108.json
+```
+
+## launch a website of show information
+```
+cd 03_trial_chartjs_pop/
+# yarn lint
+yarn serve
+# yarn build
 ```
 
 ## 参考情報：
