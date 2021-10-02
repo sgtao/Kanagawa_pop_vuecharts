@@ -5,13 +5,24 @@
       <v-layout row wrap>
         <v-flex xs12>
           <h1>市町村別人口一覧</h1>
+          <div>（選択）地域：
+            <span class="select_field">
+              <select v-model="select_category">
+                <option disabled value="">全域（選択して下さい）</option>
+                <option v-for="area in area_categories" :value="area.name" :key="area.id" >
+                  {{area.name}}
+                </option>
+              </select>
+              <button @click="clear_category">×(clear)</button>
+            </span>
+          </div>
           <div v-if="get_error">
             {{ err_message }}
           </div>
           <div v-else>
             <v-flex xs12 mt-5 justify-center>
               <p>各市町村の情報（集計年月：{{ get_month }}）：</p>
-              <v-data-table :headers='headers' :items='city_info' color="primary" app lighten class="city_info">
+              <v-data-table :headers='headers' :items='search_list' color="primary" app lighten class="city_info">
               </v-data-table>
             </v-flex>
           </div>
@@ -29,7 +40,7 @@
     margin: 0 auto;
   }
   .city_info {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     background-color: white;
     table {
@@ -55,7 +66,33 @@
       }
     }
   }
-
+  .select_field {
+    select {
+      // position: absolute;
+      width:40%;
+      background-color: white;
+      padding:.5em 1em;
+      border: 1px solid gray;
+      border-radius: 5px;
+      margin-bottom: 1em;;
+    }
+    button {
+      // position: absolute;
+      // width:10%;
+      margin: 0 5px auto;
+      text-align: right;
+      border: 1px solid gray;
+      border-radius: 5px;
+      background-color: white;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      &:hover {
+        color: white;
+        background-color: gray;
+      }
+    }
+  }
 </style>
 //
 <script>
@@ -107,6 +144,15 @@ export default {
         { text: '１世帯人数', value: 'pop_per_house', class: 'px-0' },
         { text: '人口密度', value: 'pop_per_area', class: 'px-0' },
       ],
+      select_category: '',
+      area_categories: [
+        {id: 11, name: '横浜'},
+        {id: 12, name: '川崎'},
+        {id: 13, name: '県央'},
+        {id: 14, name: '横須賀三浦'},
+        {id: 15, name: '湘南'},
+        {id: 16, name: '県西'},
+      ],
     }
   },
   created () {
@@ -127,6 +173,25 @@ export default {
         console.log(self.err_message, error);
         self.get_error = true;
       })
+  },
+  methods: {
+      clear_category: function () {
+          this.select_category = '';
+      }
+  },
+  computed: {
+    search_list(){
+      // search from keyword
+      let selectCategory = this.select_category.trim();
+      // console.log(selectCategory);
+      if (selectCategory === '') {
+        return this.city_info;
+      } else {
+        return this.city_info.filter(item => {
+          return (item.area_name.includes(selectCategory))
+        });
+      }
+    },
   },
 }
 </script>

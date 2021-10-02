@@ -28,9 +28,9 @@ export default {
       // icon の参照情報は、"https://pictogrammers.github.io/@mdi/font/2.0.46/"を参照して選択
       items: [
         { title: 'ホーム', icon: 'mdi-home', link: { name: 'Home'} },
-        { title: '人口一覧', icon: 'mdi-home', link: { name: 'PopList'} },
+        { title: '人口一覧', icon: 'mdi-table-large', link: { name: 'PopList'} },
         { title: 'サイトについて', icon: 'mdi-information-outline', link: { name: 'About' } }
-      ]
+      ],
     }
   },
   methods: {
