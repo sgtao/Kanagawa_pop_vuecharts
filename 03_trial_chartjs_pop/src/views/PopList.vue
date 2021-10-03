@@ -25,13 +25,13 @@
                 </option>
               </select>
             </span>
+            <p>各市町村の情報（集計年月：{{ get_month }}）：</p>
           </div>
           <div v-if="get_error">
             {{ err_message }}
           </div>
           <div v-else>
             <v-flex xs12 mt-5 justify-center>
-              <p>各市町村の情報（集計年月：{{ get_month }}）：</p>
               <v-data-table :headers='headers' :items='search_list' color="primary" app lighten class="city_info">
               </v-data-table>
             </v-flex>
@@ -133,6 +133,20 @@ var App = Object.freeze({
     }
   }
 });
+function getByAxios(url, callback, callback_err) {
+  // console.log("get from url : ", url);
+  axios
+    .get(url)
+    .then(response => {
+      // console.log(response.data[0]);
+      callback(response.data[0]);
+    })
+    .catch(e => {
+      console.log("Error occurred in API")
+      console.log(e)
+      callback_err(e);
+    });
+}
 //
 export default {
   name: 'PopList',
@@ -141,6 +155,7 @@ export default {
       get_error: false,
       err_message: "データ取得に失敗しました。",
       get_month: "202108",
+      response: "",
       get_info: [],
       pref_info: [],
       city_info: [],
@@ -201,51 +216,36 @@ export default {
     }
   },
   created () {
-    let self = this;
-    let get_url = base_url + 'jinkotosetai_' + self.get_month + '.json';
-    axios
-      .get(get_url)
-      .then(function (response) {
-        // console.log(response.data);
-        self.get_info = response.data[0];
-        // console.log(self.get_info);
-        self.pref_info = App.helpers.filterPrefInfo(self.get_info);
-        console.log(self.pref_info);
-        self.city_info = App.helpers.filterCityInfo(self.get_info);
-        console.log(self.city_info);
-      })
-      .catch(function (error) {
-        console.log(self.err_message, error);
-        self.get_error = true;
-      })
+    this.getInfo(this.get_month);
   },
   methods: {
       clear_category: function () {
           this.select_area = '';
-      }
+      },
+      // get city_info by callback
+      // refer Qiita : https://qiita.com/iwato/items/a1baf059c6ac1e2ab468
+      setInfo: function(response){
+        // this.info = info
+        this.pref_info = App.helpers.filterPrefInfo(response);
+        console.log(this.pref_info);
+        this.city_info = App.helpers.filterCityInfo(response);
+        console.log(this.city_info);
+      },
+      setError: function(response){
+        this.get_error = response;
+      },
+      getInfo(get_month){
+        let get_url = base_url + 'jinkotosetai_' + get_month + '.json';
+        this.get_error = false;
+        getByAxios(get_url, this.setInfo, this.setError);
+      },
   },
   watch: {
     select_month() {
       console.log(this.select_month);
       this.get_month = this.select_month;
       // reload city_infomation
-      let self = this;
-      let get_url = base_url + 'jinkotosetai_' + self.get_month + '.json';
-      axios
-        .get(get_url)
-        .then(function (response) {
-          // console.log(response.data);
-          self.get_info = response.data[0];
-          // console.log(self.get_info);
-          self.pref_info = App.helpers.filterPrefInfo(self.get_info);
-          console.log(self.pref_info);
-          self.city_info = App.helpers.filterCityInfo(self.get_info);
-          console.log(self.city_info);
-        })
-        .catch(function (error) {
-          console.log(self.err_message, error);
-          self.get_error = true;
-        })
+      this.getInfo(this.get_month);
     },
   },
   computed: {
