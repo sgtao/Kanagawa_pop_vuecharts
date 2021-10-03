@@ -12,7 +12,7 @@ fi
 # cleanup outputs folder
 rm outputs/*
 #
-#
+# reference data of「神奈川県人口統計調査（月報）」
 base_url='https://www.pref.kanagawa.jp/documents/14449/'
 base_out='outputs/'
 conv_jinkotosetai(){
@@ -49,7 +49,7 @@ conv_jinkotosetai jinkotosetai2009.xlsx  jinkotosetai_202009.json
 conv_jinkotosetai jinkotosetai_r2_10.xlsx  jinkotosetai_202010.json
 conv_jinkotosetai jinkotosetai_r2_11.xlsx  jinkotosetai_202011.json
 conv_jinkotosetai jinkotosetai_r2_12.xlsx  jinkotosetai_202012.json
-# convert between 2021.{01-08}
+# convert between 2021.{01-09}
 conv_jinkotosetai jinkotosetai_r3_1.xlsx  jinkotosetai_202101.json
 conv_jinkotosetai jinkotosetai_r3_2.xlsx  jinkotosetai_202102.json
 conv_jinkotosetai jinkotosetai_r3_3.xlsx  jinkotosetai_202103.json
@@ -58,3 +58,4 @@ conv_jinkotosetai jinkotosetai_r3_5.xlsx  jinkotosetai_202105.json
 conv_jinkotosetai jinkotosetai_r3_6.xlsx  jinkotosetai_202106.json
 conv_jinkotosetai jinkotosetai_r3_7.xlsx  jinkotosetai_202107.json
 conv_jinkotosetai jinkotosetai_r3_8.xlsx  jinkotosetai_202108.json
+conv_jinkotosetai jinkotosetai_r3_9.xlsx  jinkotosetai_202109.json
