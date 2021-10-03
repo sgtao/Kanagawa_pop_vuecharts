@@ -154,7 +154,7 @@ export default {
     return {
       get_error: false,
       err_message: "データ取得に失敗しました。",
-      get_month: "202108",
+      get_month: "",
       response: "",
       get_info: [],
       pref_info: [],
@@ -179,43 +179,26 @@ export default {
         {id: 16, name: '県西'},
       ],
       select_month: '',
-      month_list: [
-        {id: 202108, label: '2021年08月'},
-        {id: 202107, label: '2021年07月'},
-        {id: 202106, label: '2021年06月'},
-        {id: 202105, label: '2021年05月'},
-        {id: 202104, label: '2021年04月'},
-        {id: 202103, label: '2021年03月'},
-        {id: 202102, label: '2021年02月'},
-        {id: 202101, label: '2021年01月'},
-        {id: 202012, label: '2020年12月'},
-        {id: 202011, label: '2020年11月'},
-        {id: 202010, label: '2020年10月'},
-        {id: 202009, label: '2020年09月'},
-        {id: 202008, label: '2020年08月'},
-        {id: 202007, label: '2020年07月'},
-        {id: 202006, label: '2020年06月'},
-        {id: 202005, label: '2020年05月'},
-        {id: 202004, label: '2020年04月'},
-        {id: 202003, label: '2020年03月'},
-        {id: 202002, label: '2020年02月'},
-        {id: 202001, label: '2020年01月'},
-        {id: 201912, label: '2019年12月'},
-        {id: 201911, label: '2019年11月'},
-        {id: 201910, label: '2019年10月'},
-        {id: 201909, label: '2019年09月'},
-        {id: 201908, label: '2019年08月'},
-        {id: 201907, label: '2019年07月'},
-        {id: 201906, label: '2019年06月'},
-        {id: 201905, label: '2019年05月'},
-        {id: 201904, label: '2019年04月'},
-        {id: 201903, label: '2019年03月'},
-        {id: 201902, label: '2019年02月'},
-        {id: 201901, label: '2019年01月'},
-      ],
+      month_list: [],
     }
   },
   created () {
+    // push month labels to month_list
+    this.get_month = "202109";
+    let years = ['2021', '2020', '2019'];
+    let months = ['12','11','10','09','08','07','06','05','04','03','02','01'];
+    let flg_continue = true;
+    for (let year of years) {
+      for (let month of months) {
+        if (year + month == this.get_month) {
+          flg_continue = false;
+        }
+        if (flg_continue) { continue; }
+        let child = { id: year + month, label: year + '年' + month + '月'};
+        this.month_list.push(child);
+      }
+    }
+    //
     this.getInfo(this.get_month);
   },
   methods: {
