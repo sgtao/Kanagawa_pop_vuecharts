@@ -7,13 +7,23 @@
           <h1>市町村別人口一覧</h1>
           <div>（選択）地域：
             <span class="select_field">
-              <select v-model="select_category">
+              <select v-model="select_area">
                 <option disabled value="">全域（選択して下さい）</option>
                 <option v-for="area in area_categories" :value="area.name" :key="area.id" >
                   {{area.name}}
                 </option>
               </select>
               <button @click="clear_category">×(clear)</button>
+            </span>
+          </div>
+          <div>（選択）集計月：
+            <span class="select_field">
+              <select v-model="select_month">
+                <option disabled value="">（選択して下さい）</option>
+                <option v-for="month in month_list" :value="month.id" :key="month.id" >
+                  {{month.label}}
+                </option>
+              </select>
             </span>
           </div>
           <div v-if="get_error">
@@ -144,7 +154,7 @@ export default {
         { text: '１世帯人数', value: 'pop_per_house', class: 'px-0' },
         { text: '人口密度', value: 'pop_per_area', class: 'px-0' },
       ],
-      select_category: '',
+      select_area: '',
       area_categories: [
         {id: 11, name: '横浜'},
         {id: 12, name: '川崎'},
@@ -153,10 +163,45 @@ export default {
         {id: 15, name: '湘南'},
         {id: 16, name: '県西'},
       ],
+      select_month: '',
+      month_list: [
+        {id: 202108, label: '2021年08月'},
+        {id: 202107, label: '2021年07月'},
+        {id: 202106, label: '2021年06月'},
+        {id: 202105, label: '2021年05月'},
+        {id: 202104, label: '2021年04月'},
+        {id: 202103, label: '2021年03月'},
+        {id: 202102, label: '2021年02月'},
+        {id: 202101, label: '2021年01月'},
+        {id: 202012, label: '2020年12月'},
+        {id: 202011, label: '2020年11月'},
+        {id: 202010, label: '2020年10月'},
+        {id: 202009, label: '2020年09月'},
+        {id: 202008, label: '2020年08月'},
+        {id: 202007, label: '2020年07月'},
+        {id: 202006, label: '2020年06月'},
+        {id: 202005, label: '2020年05月'},
+        {id: 202004, label: '2020年04月'},
+        {id: 202003, label: '2020年03月'},
+        {id: 202002, label: '2020年02月'},
+        {id: 202001, label: '2020年01月'},
+        {id: 201912, label: '2019年12月'},
+        {id: 201911, label: '2019年11月'},
+        {id: 201910, label: '2019年10月'},
+        {id: 201909, label: '2019年09月'},
+        {id: 201908, label: '2019年08月'},
+        {id: 201907, label: '2019年07月'},
+        {id: 201906, label: '2019年06月'},
+        {id: 201905, label: '2019年05月'},
+        {id: 201904, label: '2019年04月'},
+        {id: 201903, label: '2019年03月'},
+        {id: 201902, label: '2019年02月'},
+        {id: 201901, label: '2019年01月'},
+      ],
     }
   },
   created () {
-    var self = this;
+    let self = this;
     let get_url = base_url + 'jinkotosetai_' + self.get_month + '.json';
     axios
       .get(get_url)
@@ -176,13 +221,37 @@ export default {
   },
   methods: {
       clear_category: function () {
-          this.select_category = '';
+          this.select_area = '';
       }
+  },
+  watch: {
+    select_month() {
+      console.log(this.select_month);
+      this.get_month = this.select_month;
+      // reload city_infomation
+      let self = this;
+      let get_url = base_url + 'jinkotosetai_' + self.get_month + '.json';
+      axios
+        .get(get_url)
+        .then(function (response) {
+          // console.log(response.data);
+          self.get_info = response.data[0];
+          // console.log(self.get_info);
+          self.pref_info = App.helpers.filterPrefInfo(self.get_info);
+          console.log(self.pref_info);
+          self.city_info = App.helpers.filterCityInfo(self.get_info);
+          console.log(self.city_info);
+        })
+        .catch(function (error) {
+          console.log(self.err_message, error);
+          self.get_error = true;
+        })
+    },
   },
   computed: {
     search_list(){
       // search from keyword
-      let selectCategory = this.select_category.trim();
+      let selectCategory = this.select_area.trim();
       // console.log(selectCategory);
       if (selectCategory === '') {
         return this.city_info;
