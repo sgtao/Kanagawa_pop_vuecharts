@@ -2,9 +2,9 @@ module.exports = {
   transpileDependencies: [
     'vuetify'
   ],
-  publicPath: './',
+  publicPath: '/kanagawa_population_info',
   assetsDir: "",
-  outputDir: "../docs",
+  outputDir: "docs",
   // add for set title
   // refer : https://suzuki-navi.hatenablog.com/entry/2020/11/23/215712
   pages: {

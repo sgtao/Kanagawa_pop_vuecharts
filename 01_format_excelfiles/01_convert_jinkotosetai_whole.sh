@@ -59,3 +59,5 @@ conv_jinkotosetai jinkotosetai_r3_6.xlsx  jinkotosetai_202106.json
 conv_jinkotosetai jinkotosetai_r3_7.xlsx  jinkotosetai_202107.json
 conv_jinkotosetai jinkotosetai_r3_8.xlsx  jinkotosetai_202108.json
 conv_jinkotosetai jinkotosetai_r3_9.xlsx  jinkotosetai_202109.json
+conv_jinkotosetai jinkotosetai_r3_10.xlsx  jinkotosetai_202110.json
+

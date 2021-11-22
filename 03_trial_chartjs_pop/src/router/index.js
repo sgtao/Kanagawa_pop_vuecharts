@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import PopList from '../views/PopList.vue'
+import PopPieChart from '../views/PopPieChart.vue'
 import About from '../views/About.vue'
 
 Vue.use(VueRouter)
@@ -16,6 +17,11 @@ const routes = [
     path: '/PopList',
     name: 'PopList',
     component: PopList
+  },
+  {
+    path: '/PopPieChart',
+    name: 'PopPieChart',
+    component: PopPieChart
   },
   {
     path: '/about',

@@ -29,6 +29,7 @@ export default {
       items: [
         { title: 'ホーム', icon: 'mdi-home', link: { name: 'Home'} },
         { title: '人口一覧', icon: 'mdi-table-large', link: { name: 'PopList'} },
+        { title: '人口割合', icon: 'mdi-chart-arc', link: { name: 'PopPieChart'} },
         { title: 'サイトについて', icon: 'mdi-information-outline', link: { name: 'About' } }
       ],
     }
